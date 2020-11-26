@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 6152924450034011956}
   - component: {fileID: 8871473075537423062}
   - component: {fileID: 255120982536177960}
+  - component: {fileID: 1827687618410562890}
   - component: {fileID: 5661880699581346368}
   m_Layer: 10
   m_Name: Unit
@@ -324,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  resourceCost: 10
   health: {fileID: 8871473075537423062}
   unitMovement: {fileID: 3363534258153984734}
   targeter: {fileID: 7350613679223353894}
@@ -357,6 +359,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1827687618410562890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008580627738586913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48819c3a6e75674499672d36d6478bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  colorRenderers:
+  - {fileID: 5927748843418549695}
 --- !u!65 &5661880699581346368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -472,6 +490,11 @@ PrefabInstance:
 --- !u!4 &4758251975201392336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 175dbc798d173c542ba0892a4725e77f, type: 3}
+  m_PrefabInstance: {fileID: 5008580628171678011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5927748843418549695 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 175dbc798d173c542ba0892a4725e77f, type: 3}
   m_PrefabInstance: {fileID: 5008580628171678011}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6680044519254631569

@@ -13,10 +13,16 @@ public class RTSPlayer : NetworkBehaviour
     [SyncVar(hook = nameof(ClientHandleResourcesUpdated))]
     private int resources = 500;
 
+    private Color teamColor = new Color();
     private List<Unit> myUnits = new List<Unit>();
     private List<Building> myBuildings = new List<Building>();
 
     public event Action<int> ClientOnResourcesUpdated;
+
+    public Color GetTeamColor()
+    {
+        return teamColor;
+    }
 
     public int GetResources()
     {
@@ -39,11 +45,6 @@ public class RTSPlayer : NetworkBehaviour
         return false;
     }
 
-    [Server]
-    public void SetResources(int newResources)
-    {
-        resources = newResources;
-    }
     public List<Unit> GetMyUnits()
     {
         return myUnits;
@@ -69,6 +70,19 @@ public class RTSPlayer : NetworkBehaviour
         Unit.ServerOnUnitDespawned -= ServerHandleUnitDespawned;
         Building.ServerOnBuildingSpawned -= ServerHandleBuildingSpawned;
         Building.ServerOnBuildingDespawned -= ServerHandleBuildingDespawned;
+    }
+
+
+    [Server]
+    public void SetTeamColor(Color color)
+    {
+        teamColor = color;
+    }
+
+    [Server]
+    public void SetResources(int newResources)
+    {
+        resources = newResources;
     }
 
     [Command]
