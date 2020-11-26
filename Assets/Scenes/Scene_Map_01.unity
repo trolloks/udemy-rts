@@ -615,7 +615,7 @@ MonoBehaviour:
   unitSelectionArea: {fileID: 1002377903}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
 --- !u!4 &1111973730
 Transform:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 5121
   unitSelectionHandler: {fileID: 1111973729}
 --- !u!1 &1159626654
 GameObject:
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1658731934}
   - component: {fileID: 1658731933}
   - component: {fileID: 1658731932}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
