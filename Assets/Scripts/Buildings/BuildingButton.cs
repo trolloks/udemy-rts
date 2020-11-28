@@ -71,9 +71,8 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
         foreach (var material in buildingRendererInstance.materials)
         {
-            material.color = color;
+            material.SetColor("_BaseColor", color);
         }
-        //buildingRendererInstance.material.SetColor("_BaseColor", color);
     }
 
     public void OnPointerUp(PointerEventData eventData)

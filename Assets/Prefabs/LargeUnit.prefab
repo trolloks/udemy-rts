@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492542931207929040, guid: f1f13348a87af254fa8ba311c1168d0a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1827687618410562890, guid: f1f13348a87af254fa8ba311c1168d0a, type: 3}
       propertyPath: colorRenderers.Array.data[0]
