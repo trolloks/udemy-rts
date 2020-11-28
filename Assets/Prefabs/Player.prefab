@@ -68,10 +68,10 @@ MonoBehaviour:
   buildingBlockLayer:
     serializedVersion: 2
     m_Bits: 1281
-  buildingRangeLimit: 5
   buildings:
-  - {fileID: 8190177986693124497, guid: 9f23c006f1e702e43835d27e556e3a71, type: 3}
+  - {fileID: 1091459387439769488, guid: a2d04ccc2596dcf44a7236f74fbc6f83, type: 3}
   - {fileID: 8190177986693124497, guid: 3cf717b2fb1ef4440bcf58771b5fa15b, type: 3}
+  - {fileID: 4639738393471195295, guid: 17c53bc30eaf9a2409f53c88393035e4, type: 3}
 --- !u!114 &4740704166604409634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class RTSPlayer : NetworkBehaviour
 {
     [SerializeField] private Transform cameraTransform = null;
     [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
-    [SerializeField] private float buildingRangeLimit = 5f;
+   
     [SerializeField] private Building[] buildings = new Building[0];
 
     [SyncVar(hook = nameof(ClientHandleResourcesUpdated))]
@@ -35,13 +35,14 @@ public class RTSPlayer : NetworkBehaviour
         return resources;
     }
 
-    public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 point)
+    public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 point, float buildingRangeLimit)
     {
         if (Physics.CheckBox(point + buildingCollider.center, buildingCollider.size / 2, Quaternion.identity, buildingBlockLayer))
             return false;
 
         foreach (Building building in myBuildings)
         {
+
             if ((point - building.transform.position).sqrMagnitude <= buildingRangeLimit * buildingRangeLimit)
             {
                 return true;
@@ -111,7 +112,7 @@ public class RTSPlayer : NetworkBehaviour
         // collides
         BoxCollider buildingCollider = buildingToPlace.GetComponent<BoxCollider>();
 
-        if (!CanPlaceBuilding(buildingCollider, point))
+        if (!CanPlaceBuilding(buildingCollider, point, buildingToPlace.GetBuildingRangeLimit()))
             return;
 
         GameObject buildingInstance = Instantiate(buildingToPlace.gameObject, point, buildingToPlace.transform.rotation);

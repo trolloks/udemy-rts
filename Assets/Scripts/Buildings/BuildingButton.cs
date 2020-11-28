@@ -67,8 +67,13 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         if (!buildingPreviewInstance.activeSelf)
             buildingPreviewInstance.SetActive(true);
 
-        Color color = player.CanPlaceBuilding(buildingCollider, hit.point) ? Color.green : Color.red;
-        buildingRendererInstance.material.SetColor("_BaseColor", color);
+        Color color = player.CanPlaceBuilding(buildingCollider, hit.point, building.GetBuildingRangeLimit()) ? Color.green : Color.red;
+
+        foreach (var material in buildingRendererInstance.materials)
+        {
+            material.color = color;
+        }
+        //buildingRendererInstance.material.SetColor("_BaseColor", color);
     }
 
     public void OnPointerUp(PointerEventData eventData)
