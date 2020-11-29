@@ -10,7 +10,9 @@ public class CameraController : NetworkBehaviour
     [SerializeField] private Transform playerCameraTransform = null;
     [SerializeField] private float speed = 20f;
     [SerializeField] private float screenBorderThickness = 10f;
+    [SerializeField] private float zoomSpeed = 5f;
     [SerializeField] private Vector2 screenXLimits = Vector2.zero;
+    [SerializeField] private Vector2 screenYLimits = Vector2.zero;
     [SerializeField] private Vector2 screenZLimits = Vector2.zero;
 
     private Vector2 previousInput;
@@ -73,6 +75,29 @@ public class CameraController : NetworkBehaviour
 
         pos.x = Mathf.Clamp(pos.x, screenXLimits.x, screenXLimits.y);
         pos.z = Mathf.Clamp(pos.z, screenZLimits.x, screenZLimits.y);
+
+
+        var newZoom = Mouse.current.scroll.ReadValue();
+        if (newZoom != Vector2.zero)
+        {
+            Debug.Log(newZoom);
+            Vector3 zoomMovement = Vector3.zero;
+            if (newZoom.y > 0)
+            {
+                zoomMovement.y -= zoomSpeed;
+                zoomMovement.z += zoomSpeed;
+            }  
+            else
+            {
+                zoomMovement.y += zoomSpeed;
+                zoomMovement.z -= zoomSpeed;
+            }
+
+            pos += zoomMovement * speed * Time.deltaTime;
+
+            pos.y = Mathf.Max(3f, pos.y);
+            pos.z = Mathf.Clamp(pos.z, screenZLimits.x, screenZLimits.y);
+        }
 
         playerCameraTransform.position = pos;
     }
